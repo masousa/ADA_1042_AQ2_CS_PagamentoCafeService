@@ -45,6 +45,7 @@ public class PagamentoService {
                 .numeroPix(pagamento.getNumeroPix())
                 .pendente(Objects.isNull(pagamento.getDataPagamento()))
                 .statusCompra(pagamento.getCompra().getStatus())
+                .identificadorCompra(pagamento.getCompra().getUsuario().getIdentificador())
                 .build();
     }
 }

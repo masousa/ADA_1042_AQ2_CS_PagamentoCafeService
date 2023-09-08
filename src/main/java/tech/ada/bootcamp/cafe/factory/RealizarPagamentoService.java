@@ -3,7 +3,6 @@ package tech.ada.bootcamp.cafe.factory;
 import tech.ada.bootcamp.cafe.entidades.Compra;
 import tech.ada.bootcamp.cafe.entidades.Pagamento;
 import tech.ada.bootcamp.cafe.entidades.TipoPagamento;
-import tech.ada.bootcamp.cafe.payloads.FormaPagamentoResponse;
 
 import java.time.LocalDateTime;
 
