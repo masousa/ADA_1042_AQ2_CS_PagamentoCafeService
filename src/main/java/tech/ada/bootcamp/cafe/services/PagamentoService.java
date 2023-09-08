@@ -33,8 +33,9 @@ public class PagamentoService {
         compra.setDesconto(request.getDesconto());
         compra.setIdentificador(request.getIdentificadorCompra());
         compra.setUsuario(retrieveUsuarioService.execute(request));
+        Pagamento pagamento = service.realizarPagamento(compra);
         log.info("Detalhes da compra {}", compra);
-        Pagamento pagamento = service.realizarPagamento(compraRepository.save(compra));
+        compraRepository.save(compra);
         log.info("Detalhes do pagamento {}", pagamento);
        return formatarPagamentoResponse(pagamentoRepository.save(pagamento));
 
