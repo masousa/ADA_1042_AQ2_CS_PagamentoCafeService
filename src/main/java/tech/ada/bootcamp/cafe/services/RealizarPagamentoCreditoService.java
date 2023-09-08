@@ -8,7 +8,6 @@ import tech.ada.bootcamp.cafe.entidades.Pagamento;
 import tech.ada.bootcamp.cafe.entidades.StatusCompra;
 import tech.ada.bootcamp.cafe.entidades.TipoPagamento;
 import tech.ada.bootcamp.cafe.factory.RealizarPagamentoService;
-import tech.ada.bootcamp.cafe.payloads.FormaPagamentoResponse;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -27,6 +26,7 @@ public class RealizarPagamentoCreditoService implements RealizarPagamentoService
         compra.setStatus(StatusCompra.EM_PROCESSAMENTO);
         Pagamento pagamento = generateDefaultPagamento(compra);
         pagamento.setDataPagamento(LocalDateTime.now());
+        pagamento.setCodigoTransacao(UUID.randomUUID().toString());
         return pagamento;
     }
 }

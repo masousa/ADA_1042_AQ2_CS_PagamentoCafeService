@@ -15,5 +15,6 @@ public class FormaPagamentoRequest {
     private double valor;
     private double desconto;
     private String identificadorUsuario;
+    private String identificadorCompra;
 
 }
