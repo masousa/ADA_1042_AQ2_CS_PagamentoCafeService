@@ -14,4 +14,6 @@ public class FormaPagamentoResponse {
     private String codigoTransacao;
     private boolean pendente;
     private StatusCompra statusCompra;
+    private String identificadorCompra;
+
 }
