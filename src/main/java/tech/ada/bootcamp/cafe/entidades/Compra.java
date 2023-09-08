@@ -28,4 +28,6 @@ public class Compra {
     @JoinColumn(name = "usuario_identificador")
     private Usuario usuario;
 
+    private String identificador;
+
 }

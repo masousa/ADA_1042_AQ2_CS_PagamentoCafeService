@@ -8,7 +8,6 @@ import tech.ada.bootcamp.cafe.entidades.Pagamento;
 import tech.ada.bootcamp.cafe.entidades.StatusCompra;
 import tech.ada.bootcamp.cafe.entidades.TipoPagamento;
 import tech.ada.bootcamp.cafe.factory.RealizarPagamentoService;
-import tech.ada.bootcamp.cafe.payloads.FormaPagamentoResponse;
 
 import java.util.UUID;
 
@@ -24,6 +23,9 @@ public class RealizarPagamentoPixService implements RealizarPagamentoService {
     @Override
     public Pagamento realizarPagamento(Compra compra) {
         compra.setStatus(StatusCompra.PENDENTE);
-        return  generateDefaultPagamento(compra);
+
+        Pagamento pagamento = generateDefaultPagamento(compra);
+        pagamento.setNumeroPix(UUID.randomUUID().toString());
+        return pagamento;
     }
 }

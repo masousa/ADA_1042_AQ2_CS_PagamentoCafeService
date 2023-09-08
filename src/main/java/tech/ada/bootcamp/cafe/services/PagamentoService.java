@@ -31,6 +31,7 @@ public class PagamentoService {
         compra.setDataCompra(LocalDateTime.now());
         compra.setValorCobrado(request.getValor());
         compra.setDesconto(request.getDesconto());
+        compra.setIdentificador(request.getIdentificadorCompra());
         compra.setUsuario(retrieveUsuarioService.execute(request));
         log.info("Detalhes da compra {}", compra);
         Pagamento pagamento = service.realizarPagamento(compraRepository.save(compra));
@@ -45,7 +46,7 @@ public class PagamentoService {
                 .numeroPix(pagamento.getNumeroPix())
                 .pendente(Objects.isNull(pagamento.getDataPagamento()))
                 .statusCompra(pagamento.getCompra().getStatus())
-                .identificadorCompra(pagamento.getCompra().getUsuario().getIdentificador())
+                .identificadorCompra(pagamento.getCompra().getIdentificador())
                 .build();
     }
 }
