@@ -1,6 +1,7 @@
 package tech.ada.bootcamp.cafe.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import tech.ada.bootcamp.cafe.entidades.Pagamento;
 import tech.ada.bootcamp.cafe.entidades.StatusCompra;
@@ -21,6 +22,7 @@ public class RealizarPagamentoPixPendente {
     private final PagamentoRepository pagamentoRepository;
     private final CompraRepository compraRepository;
 
+    @CacheEvict(cacheNames = "rdPagamento",allEntries = true)
     public FormaPagamentoResponse execute(String chavePix) {
         Optional<Pagamento> optionalPagamento = pagamentoRepository.findByNumeroPix(chavePix);
         LocalDateTime dataAtual = LocalDateTime.now();
